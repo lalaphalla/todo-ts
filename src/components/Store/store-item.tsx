@@ -15,21 +15,10 @@ type StoreItemProps = {
 };
 export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } =
-  useShoppingCart();
-//   const quantity = getItemQuantity(id);
-const quantity = getItemQuantity(id)
-console.log(quantity);
+    useShoppingCart();
 
-  //   const [qty, setQty] = useState(0);
-//   const increaseQty = () => {
-//     setQty((cur) => cur + 1);
-//   };
-//   const decreaseQty = () => {
-//     setQty((cur) => cur - 1);
-//   };
-//   const removeItem = () => {
-//     setQty(0);
-//   };
+  const quantity = getItemQuantity(id);
+
   return (
     <>
       <Card sx={{ maxWidth: 345 }}>

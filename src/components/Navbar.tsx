@@ -7,11 +7,12 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Badge } from '@mui/material';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const pages = ['Home', 'Task', 'About'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -19,6 +20,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 export function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  // const cartQuantity = use
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -125,7 +127,10 @@ export function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Badge badgeContent={4} color="error">
+                  {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
+                  <AddShoppingCartIcon />
+                </Badge>
               </IconButton>
             </Tooltip>
             <Menu
