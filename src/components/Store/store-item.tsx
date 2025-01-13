@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useShoppingCart } from '../../context/shopping-cart';
 
 type StoreItemProps = {
@@ -15,19 +15,21 @@ type StoreItemProps = {
 };
 export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } =
-    useShoppingCart();
-  const quantity = getItemQuantity(id);
+  useShoppingCart();
+//   const quantity = getItemQuantity(id);
+const quantity = getItemQuantity(id)
+console.log(quantity);
 
-  const [qty, setQty] = useState(0);
-  const increaseQty = () => {
-    setQty((cur) => cur + 1);
-  };
-  const decreaseQty = () => {
-    setQty((cur) => cur - 1);
-  };
-  const removeItem = () => {
-    setQty(0);
-  };
+  //   const [qty, setQty] = useState(0);
+//   const increaseQty = () => {
+//     setQty((cur) => cur + 1);
+//   };
+//   const decreaseQty = () => {
+//     setQty((cur) => cur - 1);
+//   };
+//   const removeItem = () => {
+//     setQty(0);
+//   };
   return (
     <>
       <Card sx={{ maxWidth: 345 }}>
@@ -41,20 +43,20 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
           </Typography>
         </CardContent>
         <CardActions sx={{ alignItems: 'center' }}>
-          {qty === 0 ? (
-            <Button variant="contained" onClick={increaseQty}>
+          {quantity === 0 ? (
+            <Button variant="contained" onClick={() => increaseCartQuantity(id)}>
               + Add To Cart{' '}
             </Button>
           ) : (
             <>
-              <Button variant="contained" onClick={decreaseQty}>
+              <Button variant="contained" onClick={() => decreaseCartQuantity(id)}>
                 -
               </Button>
-              <span>{qty} in cart</span>
-              <Button variant="contained" onClick={increaseQty}>
+              <span>{quantity} in cart</span>
+              <Button variant="contained" onClick={() => increaseCartQuantity(id)}>
                 +
               </Button>
-              <Button variant="contained" color="error" onClick={removeItem}>
+              <Button variant="contained" color="error" onClick={() => removeFromCart(id)}>
                 Remove
               </Button>
             </>
