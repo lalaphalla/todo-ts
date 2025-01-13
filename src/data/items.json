@@ -1,0 +1,19 @@
+[
+  { "id": 1, "name": "Book", "price": 10.99, "imgUrl": "/public/assets/images/images.jpeg" },
+
+  {
+    "id": 2,
+    "name": "Computer",
+    "price": 10.99,
+    "imgUrl": "/public/assets/images/bananas-1354785_1920.jpg"
+  },
+
+  {
+    "id": 3,
+    "name": "Banana",
+    "price": 10.99,
+    "imgUrl": "/public/assets/images/desktop-computer-vconcept-illustration_114360-12153.jpg"
+  },
+
+  { "id": 4, "name": "Book", "price": 10.99, "imgUrl": "/public/assets/images/images.jpeg" }
+]
