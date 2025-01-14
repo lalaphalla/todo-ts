@@ -1,23 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import todoApi from '../../api/todoApi';
-import TodoListView, { TodoListProps } from './view';
+import { TodoProps, useTodo } from '../../context/todo';
+import TodoListView from './view';
 
 export function TodoList() {
-  const initialStatus = [{ id: 0, todo: 'Working', completed: false }];
-  const [todos, setTodos] = useState<TodoListProps[]>(initialStatus);
-  const fetchData = async () => {
+  const initialStatus = [{ id: '0', todo: 'Working', completed: false }];
+  const [todos, setTodos] = useState<TodoProps[]>(initialStatus);
+  const { todos: todoList } = useTodo();
+  const fetchData = useCallback(async () => {
     try {
       const response = await todoApi.fetchTodo();
-      console.log('aa', response.data);
-
-      setTodos(response.data);
-      console.log('Bookmarked Lessons:', response.data);
+      setTodos(todoList);
+      console.log('Fetched Todos:', response.data);
+      console.log('Context Todos:', todoList);
     } catch (error) {
-      console.error('Error fetching bookmarked lessons:', error);
+      console.error('Error fetching todos:', error);
     }
-  };
+  }, [todoList]);
 
-  const handleToggleComplete = (id: number) => {
+  const handleToggleComplete = (id: string) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) => {
         // todoApi.update(id, todo);
@@ -27,15 +28,14 @@ export function TodoList() {
     );
   };
 
-  const handleDelete = (id: number) => {
+  const handleDelete = (id: string) => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
-    console.log(id);
     todoApi.delete(id);
   };
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   return (
     <TodoListView todos={todos} onDelete={handleDelete} onToggleComplete={handleToggleComplete} />

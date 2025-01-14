@@ -4,11 +4,17 @@ const todoApi = {
   fetchTodo() {
     return axiosInstance.get('/todos');
   },
-  delete(id: number) {
+  addTodo(todo: {id:string, todo: string, completed: boolean}){
+    return axiosInstance.post(`/todos`, todo)
+  },
+  delete(id: string) {
     return axiosInstance.delete(`/todos/${id}`);
   },
-  update(id: number, updatedTodo: {todo: string, completed: boolean}){
+  update(id: string, updatedTodo: {todo: string, completed: boolean}){
     return axiosInstance.put(`/todos/${id}`, updatedTodo)
+  },
+  randomTodo(){
+    return axiosInstance.get('https://dummyjson.com/todos/random')
   }
 };
 

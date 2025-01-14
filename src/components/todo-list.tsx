@@ -1,16 +1,13 @@
 import { Card, CardContent, Checkbox, Typography, List, ListItem, ListItemText, IconButton } from '@mui/material';
 import { Delete as DeleteIcon } from '@mui/icons-material';
+import { TodoProps } from '../context/todo';
 
-export interface TodoListViewProps {
-  id: number;
-  todo: string;
-  completed: boolean;
-}
+
 
 interface TodoListViewPropsComponent {
-  todos: TodoListViewProps[];
-  onDelete: (id: number) => void;
-  onToggleComplete: (id: number) => void;
+  todos: TodoProps[];
+  onDelete: (id: string) => void;
+  onToggleComplete: (id: string) => void;
 }
 
 export default function TodoListComponent({ todos, onDelete, onToggleComplete }: TodoListViewPropsComponent) {

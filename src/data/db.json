@@ -1,28 +1,44 @@
 {
   "todos": [
     {
-      "id": "1",
-      "todo": "Do something nice for someone you care about",
-      "completed": true,
-      "userId": 152
+      "id": "1736849696737",
+      "todo": "Explore a park you have never been to before",
+      "completed": false
     },
     {
-      "id": "2",
-      "todo": "Memorize a poem",
-      "completed": true,
-      "userId": 13
+      "id": "1736849729505",
+      "todo": "Try a new outdoor adventure sport",
+      "completed": false
     },
     {
-      "id": "4",
-      "todo": "Watch a documentary",
-      "completed": true,
-      "userId": 84
+      "id": "1736849844482",
+      "todo": "Try a new type of dance class",
+      "completed": false
     },
     {
-      "id": "5",
-      "todo": "Invest in cryptocurrencyaaa",
-      "completed": true,
-      "userId": 163
+      "id": "1736850218172",
+      "todo": "Write a short story",
+      "completed": false
+    },
+    {
+      "id": "1736850314496",
+      "todo": "Start a daily journal",
+      "completed": false
+    },
+    {
+      "id": "1736850316655",
+      "todo": "Visit an aquarium",
+      "completed": false
+    },
+    {
+      "id": "1736850326279",
+      "todo": "Research a topic interested in",
+      "completed": false
+    },
+    {
+      "id": "1736850341842",
+      "todo": "Start a garden",
+      "completed": false
     }
   ]
 }

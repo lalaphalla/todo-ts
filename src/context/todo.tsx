@@ -1,21 +1,22 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import todoApi from '../api/todoApi';
 
 type TodoProviderProps = {
   children: ReactNode;
 };
 
-type Todo = {
-  id: number;
-  text: string;
+export type TodoProps = {
+  id: string;
+  todo: string;
   completed: boolean;
 };
 
 type TodoContextType = {
-  todos: Todo[];
-  addTodo: (text: string) => void;
-  toggleTodo: (id: number, completed: boolean) => void;
-  removeTodo: (id: number) => void;
+  todos: TodoProps[];
+  addTodo: (newTodo: TodoProps) => void;
+  toggleTodo: (id: string, completed: boolean) => void;
+  removeTodo: (id: string) => void;
 };
 
 const TodoContext = createContext({} as TodoContextType);
@@ -26,7 +27,7 @@ export function useTodo() {
 }
 
 export function TodoProvider({ children }: TodoProviderProps) {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<TodoProps[]>([]);
   const baseUrl = 'http://localhost:3000/todos'; // Replace with your JSON Server URL
 
   // Fetch todos from JSON Server on mount
@@ -38,16 +39,13 @@ export function TodoProvider({ children }: TodoProviderProps) {
   }, []);
 
   // Add a new todo to JSON Server
-  function addTodo(text: string) {
-    const newTodo = { text, completed: false };
-    axios
-      .post(baseUrl, newTodo)
-      .then((response) => setTodos((prevTodos) => [...prevTodos, response.data]))
-      .catch((error) => console.error('Error adding todo:', error));
+  function addTodo(newTodo: TodoProps) {
+    setTodos((prevTodos) => [...prevTodos, newTodo]);
+    todoApi.addTodo(newTodo);
   }
 
   // Toggle the completion status of a todo
-  function toggleTodo(id: number, completed: boolean) {
+  function toggleTodo(id: string, completed: boolean) {
     axios
       .patch(`${baseUrl}/${id}`, { completed: !completed })
       .then(() =>
@@ -59,11 +57,13 @@ export function TodoProvider({ children }: TodoProviderProps) {
   }
 
   // Remove a todo from JSON Server
-  function removeTodo(id: number) {
-    axios
-      .delete(`${baseUrl}/${id}`)
-      .then(() => setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id)))
-      .catch((error) => console.error('Error removing todo:', error));
+  function removeTodo(id: string) {
+    todoApi.delete(id);
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    // axios
+    //   .delete(`${baseUrl}/${id}`)
+    //   .then(() => setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id)))
+    //   .catch((error) => console.error('Error removing todo:', error));
   }
 
   return (

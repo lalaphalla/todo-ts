@@ -1,16 +1,13 @@
 // import { TodoList } from './index';
 
 import TodoListComponent from '../../components/todo-list';
+import { TodoProps } from '../../context/todo';
 
-export interface TodoListProps {
-  id: number;
-  todo: string;
-  completed: boolean;
-}
+
 interface TodoListViewProps {
-  todos: TodoListProps[];
-  onDelete: (id: number) => void;
-  onToggleComplete: (id: number) => void;
+  todos: TodoProps[];
+  onDelete: (id: string) => void;
+  onToggleComplete: (id: string) => void;
 }
 export default function TodoListView({ todos, onDelete, onToggleComplete }: TodoListViewProps) {
   console.log(todos);
