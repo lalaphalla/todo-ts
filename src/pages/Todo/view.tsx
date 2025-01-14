@@ -16,7 +16,7 @@ export default function TodoView() {
         <h1>Task List</h1>
       </Header>
       <Typography variant="body1" gutterBottom>
-        Todo Page
+        Todo
       </Typography>
     </Box>
   );
