@@ -12,9 +12,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Badge } from '@mui/material';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Link } from 'react-router-dom';
-
+import AddTaskIcon from '@mui/icons-material/AddTask';
+import { useTodo } from '../context/todo';
 
 const pages = [
   { title: 'Home', link: '/' },
@@ -28,6 +28,8 @@ export function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   // const cartQuantity = use
+  const { todos } = useTodo();
+  const notCompletedTodo = todos.filter((todo) => todo.completed === false).length;
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -96,7 +98,9 @@ export function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page.title} onClick={handleCloseNavMenu}>
-                  <Link to={page.link}><Typography sx={{ textAlign: 'center' }}>{page.title}</Typography></Link>
+                  <Link to={page.link}>
+                    <Typography sx={{ textAlign: 'center' }}>{page.title}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -123,21 +127,21 @@ export function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Link to={page.link} key={page.title}>
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page.title}
-              </Button>
-            </Link>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {page.title}
+                </Button>
+              </Link>
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Badge badgeContent={4} color="error">
+                <Badge badgeContent={notCompletedTodo} color="error">
                   {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
-                  <AddShoppingCartIcon />
+                  <AddTaskIcon />
                 </Badge>
               </IconButton>
             </Tooltip>

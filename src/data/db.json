@@ -1,43 +1,48 @@
 {
   "todos": [
     {
-      "id": "1736849696737",
-      "todo": "Explore a park you have never been to before",
+      "id": "1736853004578",
+      "todo": "Make a couch fort",
+      "completed": true
+    },
+    {
+      "id": "1736853269698",
+      "todo": "Organize a bookshelf",
+      "completed": true
+    },
+    {
+      "id": "1736853608410",
+      "todo": "Try a new fitness class like aerial yoga or barre",
       "completed": false
     },
     {
-      "id": "1736849729505",
-      "todo": "Try a new outdoor adventure sport",
+      "id": "1736853687919",
+      "todo": "Take a caffeine nap",
       "completed": false
     },
     {
-      "id": "1736849844482",
-      "todo": "Try a new type of dance class",
+      "id": "1736853784888",
+      "todo": "Learn how to beatbox",
       "completed": false
     },
     {
-      "id": "1736850218172",
-      "todo": "Write a short story",
+      "id": "1736854146006",
+      "todo": "Practice coding in favorite language",
       "completed": false
     },
     {
-      "id": "1736850314496",
-      "todo": "Start a daily journal",
+      "id": "1736854176714",
+      "todo": "Go for a run",
       "completed": false
     },
     {
-      "id": "1736850316655",
-      "todo": "Visit an aquarium",
+      "id": "1736854182012",
+      "todo": "Attend a live music concert",
       "completed": false
     },
     {
-      "id": "1736850326279",
-      "todo": "Research a topic interested in",
-      "completed": false
-    },
-    {
-      "id": "1736850341842",
-      "todo": "Start a garden",
+      "id": "1736854184757",
+      "todo": "Practice coding in favorite language",
       "completed": false
     }
   ]

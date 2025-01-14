@@ -15,7 +15,7 @@ export type TodoProps = {
 type TodoContextType = {
   todos: TodoProps[];
   addTodo: (newTodo: TodoProps) => void;
-  toggleTodo: (id: string, completed: boolean) => void;
+  toggleTodo: (id: string) => void;
   removeTodo: (id: string) => void;
 };
 
@@ -45,15 +45,14 @@ export function TodoProvider({ children }: TodoProviderProps) {
   }
 
   // Toggle the completion status of a todo
-  function toggleTodo(id: string, completed: boolean) {
-    axios
-      .patch(`${baseUrl}/${id}`, { completed: !completed })
-      .then(() =>
-        setTodos((prevTodos) =>
-          prevTodos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo))
-        )
-      )
-      .catch((error) => console.error('Error toggling todo:', error));
+  function toggleTodo(id: string) {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => {
+        // todoApi.update(id, todo);
+        if (todo.id === id) todoApi.update(id, { ...todo, completed: !todo.completed });
+        return todo.id === id ? { ...todo, completed: !todo.completed } : todo;
+      })
+    );
   }
 
   // Remove a todo from JSON Server

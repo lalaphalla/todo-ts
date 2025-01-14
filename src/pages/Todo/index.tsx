@@ -6,7 +6,7 @@ import { TodoProps, useTodo } from '../../context/todo';
 
 export function Todo() {
   const [randomTodo, setRandomTodo] = useState('');
-  const { todos, addTodo } = useTodo();
+  const { addTodo } = useTodo();
   const fetchData = async () => {
     try {
       const response = await todoApi.randomTodo();
