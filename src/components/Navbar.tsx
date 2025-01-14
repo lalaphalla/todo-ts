@@ -13,8 +13,17 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Badge } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { Link } from 'react-router-dom';
 
-const pages = ['Home', 'Task', 'About'];
+// const pages = ['Home', 'TodoList', 'Todo', 'About'];
+// const links = ['home', 'todolist', 'todo', 'about'];
+
+const pages = [
+  { title: 'Home', link: '/' },
+  { title: 'TodoList', link: '/todolist' },
+  { title: 'Todo', link: '/todo' },
+  { title: 'About', link: '/about' },
+];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export function ResponsiveAppBar() {
@@ -87,11 +96,11 @@ export function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+              {/* {pages.map((page) => (
+                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                  <Link to={page.link}><Typography sx={{ textAlign: 'center' }}>{page.title}</Typography></Link>
                 </MenuItem>
-              ))}
+              ))} */}
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -115,13 +124,14 @@ export function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
+              <Link to={page.link} key={page.title}>
               <Button
-                key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {page.title}
               </Button>
+            </Link>
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>

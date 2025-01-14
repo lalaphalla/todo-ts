@@ -1,0 +1,28 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "todo": "Do something nice for someone you care about",
+      "completed": true,
+      "userId": 152
+    },
+    {
+      "id": "2",
+      "todo": "Memorize a poem",
+      "completed": true,
+      "userId": 13
+    },
+    {
+      "id": "4",
+      "todo": "Watch a documentary",
+      "completed": true,
+      "userId": 84
+    },
+    {
+      "id": "5",
+      "todo": "Invest in cryptocurrencyaaa",
+      "completed": true,
+      "userId": 163
+    }
+  ]
+}
