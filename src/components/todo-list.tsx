@@ -1,4 +1,4 @@
-import { Card, CardContent, Checkbox, Typography, List, ListItem, ListItemText, IconButton, Divider } from '@mui/material';
+import { Card, CardContent, Checkbox, Typography, List, ListItem, ListItemText, IconButton } from '@mui/material';
 import { Delete as DeleteIcon } from '@mui/icons-material';
 
 export interface TodoListViewProps {

@@ -15,8 +15,6 @@ import { Badge } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Link } from 'react-router-dom';
 
-// const pages = ['Home', 'TodoList', 'Todo', 'About'];
-// const links = ['home', 'todolist', 'todo', 'about'];
 
 const pages = [
   { title: 'Home', link: '/' },
@@ -96,11 +94,11 @@ export function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              {/* {pages.map((page) => (
+              {pages.map((page) => (
                 <MenuItem key={page.title} onClick={handleCloseNavMenu}>
                   <Link to={page.link}><Typography sx={{ textAlign: 'center' }}>{page.title}</Typography></Link>
                 </MenuItem>
-              ))} */}
+              ))}
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />

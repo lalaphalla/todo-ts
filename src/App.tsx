@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import TodoView from './pages/todo/view';
 import { HomeView } from './pages/Home';
 import ResponsiveAppBar from './components/Navbar';
