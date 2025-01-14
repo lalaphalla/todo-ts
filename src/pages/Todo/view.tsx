@@ -16,7 +16,7 @@ export default function TodoView() {
         <h1>Task List</h1>
       </Header>
       <Typography variant="body1" gutterBottom>
-        This is a placeholder for the Todo Page.
+        Todo Page
       </Typography>
     </Box>
   );
