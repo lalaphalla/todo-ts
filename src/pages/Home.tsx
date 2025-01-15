@@ -14,10 +14,10 @@ export function HomeView() {
   return (
     <>
       <BasicCard />
-      <div>
+      {/* <div>
         <p>Current theme:</p>
         <button>Toggle Theme</button>
-      </div>
+      </div> */}
       {/* <Home /> */}
     </>
   );

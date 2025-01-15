@@ -20,7 +20,6 @@ const pages = [
   { title: 'Home', link: '/' },
   { title: 'TodoList', link: '/todolist' },
   { title: 'Todo', link: '/todo' },
-  { title: 'About', link: '/about' },
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
