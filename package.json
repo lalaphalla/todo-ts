@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.3.1",
     "@mui/material": "^6.3.1",
+    "@types/json-server": "^0.14.7",
     "axios": "^1.7.9",
     "jotai": "^2.11.0",
     "json-server": "^1.0.0-beta.3",
