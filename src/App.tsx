@@ -6,6 +6,7 @@ import { TodoDetailView } from './pages/todo-detail/view';
 // import TodoListView from './pages/todo-list/view';
 import { TodoList } from './pages/todo-list';
 import { Todo } from './pages/todo';
+import { atom, useAtom } from 'jotai';
 
 function App() {
   return (
