@@ -6,9 +6,10 @@ import { TodoDetailView } from './pages/todo-detail/view';
 // import TodoListView from './pages/todo-list/view';
 import { TodoList } from './pages/todo-list';
 import { Todo } from './pages/todo';
-import { atom, useAtom } from 'jotai';
+import useTodoHandler from './hooks/use-todo';
 
 function App() {
+  useTodoHandler();
   return (
     <>
       <ResponsiveAppBar />

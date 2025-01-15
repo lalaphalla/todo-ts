@@ -1,15 +1,19 @@
 import { useCallback, useEffect, useState } from 'react';
-import todoApi from '../../api/todoApi';
 import { TodoProps, useTodo } from '../../context/todo';
 import TodoListView from './view';
-
+import { useAtomValue } from 'jotai';
+import { todos as todoList1 } from '../../store/todo';
 export function TodoList() {
   const initialStatus = [{ id: '0', todo: 'Working', completed: false }];
   const [todos, setTodos] = useState<TodoProps[]>(initialStatus);
   const { todos: todoList, removeTodo, toggleTodo } = useTodo();
+  const todoList2 = useAtomValue(todoList1); // Access the todos state
+
   const fetchData = useCallback(async () => {
     try {
-    //   const response = await todoApi.fetchTodo();
+      //   const response = await todoApi.fetchTodo();
+      console.log(todoList2);
+
       setTodos(todoList);
     } catch (error) {
       console.error('Error fetching todos:', error);
@@ -17,7 +21,7 @@ export function TodoList() {
   }, [todoList]);
 
   const handleToggleComplete = (id: string) => {
-    toggleTodo(id)
+    toggleTodo(id);
     // setTodos((prevTodos) =>
     //   prevTodos.map((todo) => {
     //     // todoApi.update(id, todo);
@@ -33,7 +37,10 @@ export function TodoList() {
     // todoApi.delete(id);
   };
 
+  // const todoList1 = useAtomValue<TodoType>(todoLists)
   useEffect(() => {
+    // console.log(todoLists);
+
     fetchData();
   }, [fetchData]);
 
