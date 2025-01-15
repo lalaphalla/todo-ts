@@ -34,7 +34,7 @@ export function TodoProvider({ children }: TodoProviderProps) {
   useEffect(() => {
     axios
       .get(baseUrl)
-      .then((response) => setTodos(response.data))
+      .then((response) => setTodos(response.data.data))
       .catch((error) => console.error('Error fetching todos:', error));
   }, []);
 

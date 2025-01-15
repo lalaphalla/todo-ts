@@ -1,34 +1,64 @@
 {
-    "todos": [
-      {
-        "id": "1736853004578",
-        "todo": "Make a couch fort",
-        "completed": true
-      },
-      {
-        "id": "1736853269698",
-        "todo": "Organize a bookshelf",
-        "completed": true
-      },
-      {
-        "id": "1736853608410",
-        "todo": "Try a new fitness class like aerial yoga or barre",
-        "completed": false
-      },
-      {
-        "id": "1736853687919",
-        "todo": "Take a caffeine nap",
-        "completed": false
-      },
-      {
-        "id": "1736853784888",
-        "todo": "Learn how to beatbox",
-        "completed": false
-      },
-      {
-        "id": "1736854146006",
-        "todo": "Practice coding in favorite language",
-        "completed": false
-      }
-    ]
-  }
+  "todos": [
+    {
+      "id": "1736853004578",
+      "todo": "Make a couch fort",
+      "completed": true
+    },
+    {
+      "id": "1736853269698",
+      "todo": "Organize a bookshelf",
+      "completed": true
+    },
+    {
+      "id": "1736853608410",
+      "todo": "Try a new fitness class like aerial yoga or barre",
+      "completed": true
+    },
+    {
+      "id": "1736853687919",
+      "todo": "Take a caffeine nap",
+      "completed": true
+    },
+    {
+      "id": "1736853784888",
+      "todo": "Learn how to beatbox",
+      "completed": false
+    },
+    {
+      "id": "1736854146006",
+      "todo": "Practice coding in favorite language",
+      "completed": false
+    },
+    {
+      "id": "1736923138713",
+      "todo": "Explore a park you have never been to before",
+      "completed": false
+    },
+    {
+      "id": "1736923140099",
+      "todo": "Start a weekly family game night",
+      "completed": false
+    },
+    {
+      "id": "1736923145722",
+      "todo": "Clean out garage",
+      "completed": false
+    },
+    {
+      "id": "1736923223816",
+      "todo": "Invest in cryptocurrency",
+      "completed": false
+    },
+    {
+      "id": "1736923375520",
+      "todo": "New Todo",
+      "completed": false
+    },
+    {
+      "id": "1736923378981",
+      "todo": "Try indoor rock climbing",
+      "completed": false
+    }
+  ]
+}

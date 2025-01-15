@@ -24,7 +24,7 @@ export function TodoForm({addRandomTodo, addTodo }: TodoFormProps) {
     todoRef.current!.value = addRandomTodo()
   };
   return (
-    <Box sx={{ width: '100%', maxWidth: 500, margin: 'auto' }}>
+    <Box pt={4} sx={{ width: '100%', maxWidth: 500, margin: 'auto' }}>
       <form onSubmit={handleSubmit}>
         <TextField
           fullWidth
