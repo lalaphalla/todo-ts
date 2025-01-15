@@ -28,7 +28,7 @@ export function useTodo() {
 
 export function TodoProvider({ children }: TodoProviderProps) {
   const [todos, setTodos] = useState<TodoProps[]>([]);
-  const baseUrl = 'http://localhost:3000/todos'; // Replace with your JSON Server URL
+  const baseUrl = 'https://todo-ts-backend-x7zo.onrender.com/todos'; // Replace with your JSON Server URL
 
   // Fetch todos from JSON Server on mount
   useEffect(() => {
