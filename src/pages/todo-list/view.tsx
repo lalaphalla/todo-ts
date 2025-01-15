@@ -10,7 +10,6 @@ interface TodoListViewProps {
   onToggleComplete: (id: string) => void;
 }
 export default function TodoListView({ todos, onDelete, onToggleComplete }: TodoListViewProps) {
-  console.log(todos);
 
   return (
     <>

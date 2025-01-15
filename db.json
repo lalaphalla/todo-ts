@@ -1,0 +1,34 @@
+{
+    "todos": [
+      {
+        "id": "1736853004578",
+        "todo": "Make a couch fort",
+        "completed": true
+      },
+      {
+        "id": "1736853269698",
+        "todo": "Organize a bookshelf",
+        "completed": true
+      },
+      {
+        "id": "1736853608410",
+        "todo": "Try a new fitness class like aerial yoga or barre",
+        "completed": false
+      },
+      {
+        "id": "1736853687919",
+        "todo": "Take a caffeine nap",
+        "completed": false
+      },
+      {
+        "id": "1736853784888",
+        "todo": "Learn how to beatbox",
+        "completed": false
+      },
+      {
+        "id": "1736854146006",
+        "todo": "Practice coding in favorite language",
+        "completed": false
+      }
+    ]
+  }
