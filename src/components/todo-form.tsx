@@ -12,7 +12,6 @@ export function TodoForm({ addRandomTodo, addTodo }: TodoFormProps) {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    console.log(todoRef.current?.value);
     const newTodo: TodoType = {
       id: Date.now().toString(),
       todo: todoRef.current?.value || 'New Todo',

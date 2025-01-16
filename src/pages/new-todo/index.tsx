@@ -10,7 +10,7 @@ import { useAtom } from 'jotai';
 export function NewTodo() {
   const [randomTodo, setRandomTodo] = useState('');
   const { addTodo } = useTodo();
-  const [todosAtom, setTodosAtom] = useAtom(todos);
+  const [, setTodosAtom] = useAtom(todos);
   const fetchData = async () => {
     try {
       const response = await todoApi.randomTodo();
@@ -21,7 +21,6 @@ export function NewTodo() {
   };
 
   const handleTodo = (newTodo: TodoType) => {
-    console.log(todosAtom);
     addTodo(newTodo); 
     setTodosAtom((prevTodos) => [...prevTodos, newTodo]);
     // todoApi.addTodo(newTodo);

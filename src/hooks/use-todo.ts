@@ -7,7 +7,6 @@ export const useTodoHandler = () => {
 
   const fetchAllData = useCallback(async () => {
     const response = await todoApi.fetchTodo();
-    console.log(response.data.data, 'using hook');
 
     setTodos(response.data.data);
   }, [setTodos]);

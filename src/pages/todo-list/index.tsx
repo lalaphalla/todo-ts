@@ -15,7 +15,6 @@ export function TodoList() {
   const fetchData = useCallback(async () => {
     try {
       //   const response = await todoApi.fetchTodo();
-      console.log(todoList, 'todo Context API');
       setTodos(todosAtom);
     } catch (error) {
       console.error('Error fetching todos:', error);

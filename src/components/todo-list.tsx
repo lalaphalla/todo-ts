@@ -1,11 +1,11 @@
 import { Card, CardContent, Checkbox, Typography, List, ListItem, ListItemText, IconButton } from '@mui/material';
 import { Delete as DeleteIcon } from '@mui/icons-material';
-import { TodoProps } from '../context/todo';
+import { TodoType } from '../types/todo';
 
 
 
 interface TodoListViewPropsComponent {
-  todos: TodoProps[];
+  todos: TodoType[];
   onDelete: (id: string) => void;
   onToggleComplete: (id: string) => void;
 }
