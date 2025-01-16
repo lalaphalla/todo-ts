@@ -6,10 +6,19 @@ import Typography from '@mui/material/Typography';
 import { Chip, Grid2 } from '@mui/material';
 import { TodoType } from '../types/todo';
 import { convertedDate } from '../utilities/convert-date';
+// import { DragEvent } from 'react';
 
 export default function TodoCard({ id, todo, completed }: TodoType) {
+
+  // function dragStartHandler(event: DragEvent) {
+  //   event.dataTransfer!.setData('text/plain', id);
+  //   event.dataTransfer!.effectAllowed = 'move';
+  //   console.log(event);
+  // }
+
   return (
     <Grid2 size={{ xs: 12 }} key={id} width={'100%'}>
+    {/* <Grid2 size={{ xs: 12 }} key={id} width={'100%'} draggable onDragStart={dragStartHandler}> */}
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
           <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
