@@ -1,11 +1,16 @@
-import { Container, Typography } from '@mui/material';
+import { Container, Stack } from '@mui/material';
+import { ReactNode } from 'react';
 
-export function     HomeHeader() {
+type HomeLayoutProps = {
+  children: ReactNode;
+};
+
+export function HomeLayout({ children }: HomeLayoutProps) {
   return (
     <Container maxWidth="xl">
-      <Typography variant="h3" gutterBottom>
-        Home Page
-      </Typography> 
+      <Stack width={'100%'} direction={'row'}>
+        {children}
+      </Stack>
     </Container>
   );
 }

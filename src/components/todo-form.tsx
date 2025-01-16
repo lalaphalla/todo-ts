@@ -1,19 +1,19 @@
 import { Box, Button, TextField } from '@mui/material';
 import { FormEvent, useRef } from 'react';
-import { TodoProps } from '../context/todo';
+import { TodoType } from '../types/todo';
 
 interface TodoFormProps {
   addRandomTodo: () => string;
-  addTodo: (newTodo: TodoProps) => void;
+  addTodo: (newTodo: TodoType) => void;
 }
 
-export function TodoForm({addRandomTodo, addTodo }: TodoFormProps) {
+export function TodoForm({ addRandomTodo, addTodo }: TodoFormProps) {
   const todoRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     console.log(todoRef.current?.value);
-    const newTodo: TodoProps = {
+    const newTodo: TodoType = {
       id: Date.now().toString(),
       todo: todoRef.current?.value || 'New Todo',
       completed: false,
@@ -21,7 +21,7 @@ export function TodoForm({addRandomTodo, addTodo }: TodoFormProps) {
     addTodo(newTodo);
   };
   const handleRandomTodo = () => {
-    todoRef.current!.value = addRandomTodo()
+    todoRef.current!.value = addRandomTodo();
   };
   return (
     <Box pt={4} sx={{ width: '100%', maxWidth: 500, margin: 'auto' }}>
