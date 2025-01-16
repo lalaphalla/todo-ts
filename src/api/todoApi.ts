@@ -11,7 +11,7 @@ const todoApi = {
     return axiosInstance.delete(`/todos/${id}`);
   },
   update(id: string, updatedTodo: {todo: string, completed: boolean}){
-    return axiosInstance.put(`/todos/${id}`, updatedTodo)
+    return axiosInstance.patch(`/todos/${id}`, updatedTodo)
   },
   randomTodo(){
     return axiosInstance.get('https://dummyjson.com/todos/random')
