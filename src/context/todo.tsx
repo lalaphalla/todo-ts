@@ -1,19 +1,20 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import todoApi from '../api/todoApi';
+import { TodoType } from '../types/todo';
 
 type TodoProviderProps = {
   children: ReactNode;
 };
 
-export type TodoProps = {
-  id: string;
-  todo: string;
-  completed: boolean;
-};
+// export type TodoType = {
+//   id: string;
+//   todo: string;
+//   completed: boolean;
+// };
 
 type TodoContextType = {
-  todos: TodoProps[];
-  addTodo: (newTodo: TodoProps) => void;
+  todos: TodoType[];
+  addTodo: (newTodo: TodoType) => void;
   toggleTodo: (id: string) => void;
   removeTodo: (id: string) => void;
 };
@@ -26,14 +27,14 @@ export function useTodo() {
 }
 
 export function TodoProvider({ children }: TodoProviderProps) {
-  const [todos, setTodos] = useState<TodoProps[]>([]);
+  const [todos, setTodos] = useState<TodoType[]>([]);
 
   const fetchData = async () => {
     const response = await todoApi.fetchTodo();
     setTodos(response.data.data);
   };
   // Add a new todo to JSON Server
-  function addTodo(newTodo: TodoProps) {
+  function addTodo(newTodo: TodoType) {
     setTodos((prevTodos) => [...prevTodos, newTodo]);
     todoApi.addTodo(newTodo);
   }

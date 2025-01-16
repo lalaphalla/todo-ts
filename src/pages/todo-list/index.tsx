@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
-import { TodoProps, useTodo } from '../../context/todo';
+import { useTodo } from '../../context/todo';
 import TodoListView from './view';
 import { useAtomValue } from 'jotai';
 import { todos as todoList1 } from '../../store/todo';
+import { TodoType } from '../../types/todo';
 export function TodoList() {
   const initialStatus = [{ id: '0', todo: 'Working', completed: false }];
-  const [todos, setTodos] = useState<TodoProps[]>(initialStatus);
+  const [todos, setTodos] = useState<TodoType[]>(initialStatus);
   const { todos: todoList, removeTodo, toggleTodo } = useTodo();
   const todoList2 = useAtomValue(todoList1); // Access the todos state
 

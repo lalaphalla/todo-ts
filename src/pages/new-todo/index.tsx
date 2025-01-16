@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import todoApi from '../../api/todoApi';
 
 import TodoView from './view';
-import { TodoProps, useTodo } from '../../context/todo';
+import { useTodo } from '../../context/todo';
+import { TodoType } from '../../types/todo';
 
 export function NewTodo() {
   const [randomTodo, setRandomTodo] = useState('');
   const { addTodo } = useTodo();
+  // const [todos, setTodos] = useAtom(todos);
   const fetchData = async () => {
     try {
       const response = await todoApi.randomTodo();
@@ -17,7 +19,7 @@ export function NewTodo() {
     }
   };
 
-  const handleTodo = (newTodo: TodoProps) => {
+  const handleTodo = (newTodo: TodoType) => {
     // console.log(newTodo);
     addTodo(newTodo);
   };
