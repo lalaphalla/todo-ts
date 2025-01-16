@@ -2,15 +2,15 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTodo } from '../../context/todo';
 import TodoListView from './view';
 import { useAtom } from 'jotai';
-import { todos as todoList1 } from '../../store/todo';
+import { todos as todoList } from '../../store/todo';
 import { TodoType } from '../../types/todo';
 export function TodoList() {
   const initialStatus = [{ id: '0', todo: 'Working', completed: false }];
   const [todos, setTodos] = useState<TodoType[]>(initialStatus);
   // Use contextAPI
-  const { todos: todoList, removeTodo, toggleTodo } = useTodo();
+  const { removeTodo, toggleTodo } = useTodo();
   // Use Jotai Global State
-  const [todosAtom, setTodosAtom] = useAtom(todoList1);
+  const [todosAtom, setTodosAtom] = useAtom(todoList);
 
   const fetchData = useCallback(async () => {
     try {
