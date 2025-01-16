@@ -1,5 +1,6 @@
 import axiosInstance from './instance';
 
+// Use Axios Instance to access and update API
 const todoApi = {
   fetchTodo() {
     return axiosInstance.get('/todos');

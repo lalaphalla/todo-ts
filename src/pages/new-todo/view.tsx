@@ -1,10 +1,10 @@
 import { TodoForm } from '../../components/todo-form';
-import { TodoProps } from '../../context/todo';
+import { TodoType } from '../../types/todo';
 import { TodoList } from '../todo-list';
 
 interface NewTodoViewProps {
-  handleRandomTodo: ()=> string;
-  onCreate: (todo: TodoProps) => void;
+  handleRandomTodo: () => string;
+  onCreate: (todo: TodoType) => void;
 }
 
 export default function NewTodoView({ onCreate, handleRandomTodo }: NewTodoViewProps) {

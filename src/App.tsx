@@ -4,7 +4,7 @@ import { HomeView } from './pages/Home';
 import ResponsiveAppBar from './components/Navbar';
 // import TodoListView from './pages/todo-list/view';
 import { TodoList } from './pages/todo-list';
-import useTodoHandler from './hooks/use-todo';
+import { useTodoHandler } from './hooks/use-todo';
 import { NewTodo } from './pages/new-todo';
 
 function App() {

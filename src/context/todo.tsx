@@ -6,12 +6,6 @@ type TodoProviderProps = {
   children: ReactNode;
 };
 
-// export type TodoType = {
-//   id: string;
-//   todo: string;
-//   completed: boolean;
-// };
-
 type TodoContextType = {
   todos: TodoType[];
   addTodo: (newTodo: TodoType) => void;
