@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
-import axios from 'axios';
 import todoApi from '../api/todoApi';
 
 type TodoProviderProps = {
@@ -28,16 +27,11 @@ export function useTodo() {
 
 export function TodoProvider({ children }: TodoProviderProps) {
   const [todos, setTodos] = useState<TodoProps[]>([]);
-  const baseUrl = 'https://todo-ts-backend-x7zo.onrender.com/todos'; // Replace with your JSON Server URL
 
-  // Fetch todos from JSON Server on mount
-  useEffect(() => {
-    axios
-      .get(baseUrl)
-      .then((response) => setTodos(response.data.data))
-      .catch((error) => console.error('Error fetching todos:', error));
-  }, []);
-
+  const fetchData = async () => {
+    const response = await todoApi.fetchTodo();
+    setTodos(response.data.data);
+  };
   // Add a new todo to JSON Server
   function addTodo(newTodo: TodoProps) {
     setTodos((prevTodos) => [...prevTodos, newTodo]);
@@ -59,12 +53,11 @@ export function TodoProvider({ children }: TodoProviderProps) {
   function removeTodo(id: string) {
     todoApi.delete(id);
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
-    // axios
-    //   .delete(`${baseUrl}/${id}`)
-    //   .then(() => setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id)))
-    //   .catch((error) => console.error('Error removing todo:', error));
   }
-
+  // Fetch todos from JSON Server on mount
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <TodoContext.Provider value={{ todos, addTodo, toggleTodo, removeTodo }}>
       {children}
