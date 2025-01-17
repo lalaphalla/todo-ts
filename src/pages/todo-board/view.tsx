@@ -27,7 +27,7 @@ export function TodoBoardView({ todos, dragStartHandler, dropHandler, dropOverHa
 
       <BoxLayout status={status.COMPLETED}>
         <TodoCardList
-          todos={todos.filter((todo) => !todo.completed)}
+          todos={todos.filter((todo) => todo.completed)}
           dragStartHandler={dragStartHandler}
           completed
           dropHandler={dropHandler}

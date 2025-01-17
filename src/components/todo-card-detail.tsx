@@ -8,18 +8,8 @@ import { TodoType } from '../types/todo';
 import { convertedDate } from '../utilities/convert-date';
 import { DragStart } from '../types/drag';
 
-export interface TodoCardProps extends TodoType, DragStart {
-  // dragEndHandler: () => void;
-}
+export interface TodoCardProps extends TodoType, DragStart {}
 export default function TodoCard({ id, todo, completed, dragStartHandler }: TodoCardProps) {
-  // function dragStartHandlers(event: DragEvent, idx) {
-  //   event.dataTransfer!.setData('text/plain', id);
-  //   event.dataTransfer!.effectAllowed = 'move';
-  //   // console.log(event);
-  // }
-  // function dragEndHandler() {
-  //   console.log('DragEnd');
-  // }
   return (
     // <Grid2 size={{ xs: 12 }} key={id} width={'100%'}>
     <Grid2

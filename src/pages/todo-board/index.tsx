@@ -1,13 +1,14 @@
 import { DragEvent } from 'react';
 import { TodoBoardView } from './view';
 import { useTodo } from '../../context/todo';
-import { useSetAtom } from 'jotai';
-import { todos } from '../../store/todo';
+import { useAtom  } from 'jotai';
+import { todos as TodoAtom } from '../../store/todo';
 
 export function TodoBoard() {
   const { toggleTodo } = useTodo();
+
   // const { toggleTodo } = useTodo();
-  const setTodo = useSetAtom(todos);
+  const [todos, setTodos] = useAtom(TodoAtom);
   function onDragStart(event: DragEvent, id: string) {
     event.dataTransfer.setData('text/plain', id);
     event.dataTransfer.effectAllowed = 'move';
@@ -17,7 +18,7 @@ export function TodoBoard() {
     const id = event.dataTransfer!.getData('text/plain');
     console.log(id);
 
-    setTodo((prevTodos) =>
+    setTodos((prevTodos) =>
       prevTodos.map((todo) => {
         // todoApi.update(id, todo);
         if (todo.id === id && todo.completed !== completed) {
@@ -33,14 +34,12 @@ export function TodoBoard() {
   function onDropOver(event: DragEvent) {
     if (event.dataTransfer && event.dataTransfer.types[0] === 'text/plain') {
       event.preventDefault();
-      // const listEl = this.element.querySelector("ul")!;
-      // listEl.classList.add("droppable");
     }
   }
 
   return (
     <TodoBoardView
-      todos={[]}
+      todos={todos}
       dragStartHandler={onDragStart}
       dropHandler={onDrop}
       dropOverHandler={onDropOver}

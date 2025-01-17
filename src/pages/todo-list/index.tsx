@@ -8,7 +8,7 @@ export function TodoList() {
   const initialStatus = [{ id: '0', todo: 'Working', completed: false }];
   const [todos, setTodos] = useState<TodoType[]>(initialStatus);
   // Use contextAPI
-  const { todos: todoList, removeTodo, toggleTodo } = useTodo();
+  const { removeTodo, toggleTodo } = useTodo();
   // Use Jotai Global State
   const [todosAtom, setTodosAtom] = useAtom(todoList1);
 
